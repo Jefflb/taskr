@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_task, only:[:show,:edit,:update,:destroy]
+    before_action :set_task, only:[:show,:edit,:update,:destroy,:change]
     def index
         @to_do = current_user.tasks.where(state: 'to_do')
         @doing = current_user.tasks.where(state: 'doing')
@@ -45,6 +45,12 @@ class TasksController < ApplicationController
         
         @task.destroy
 
+        redirect_to tasks_path
+    end
+
+    def change
+        @task.update_attributes(state: params[:state])
+        flash[:notice] = "Task status was successfully changed!"
         redirect_to tasks_path
     end
 
