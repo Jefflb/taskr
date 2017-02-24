@@ -21,7 +21,7 @@
     <% end %>
     <%= link_to "X", task_path(task), class: 'pull-right', data: {confirm: 'Are you sure?'}%>
   </div>
-  <div class="panel-body"><%= task.content %></div>
+  <div class="panel-body"><%= raw(task.content_html) %></div>
   <div class="panel-footer">
     <div class="btn-group btn-group-justified">
      <% if task.state == "doing" %>

@@ -51,3 +51,4 @@ gem "twitter-bootstrap-rails"
 gem "font-awesome-rails"
 gem 'simple_form'
 gem 'devise'
+gem 'auto_html', :git => 'https://github.com/dgilperez/auto_html.git'
